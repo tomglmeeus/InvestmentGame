@@ -1,5 +1,4 @@
 class Users():
-    def __init__(self, username, email, balance):
+    def __init__(self, username, balance):
         self.username = username
-        self.email = email
         self.balance = balance

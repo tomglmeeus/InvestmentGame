@@ -18,7 +18,7 @@ class Stock():
         today = str(datetime.now().strftime("%Y-%m-%d"))
         try:
             price = stock["Time Series (Daily)"][today]["4. close"]            
-            return(price)
+            return(float(price))
         except KeyError:
             print("No data found for date {}".format(today))
             return 0

@@ -15,5 +15,11 @@ while ans == "N":
     if ans == "Y":
         continue
 
-print("The price for one stock is x.")  # fill x with price
+price_IBM: float = 10  # fill with price function
+print(f"The price for one stock is {price_IBM}.")
+
 amount = int(input("How many stocks do you want to buy? "))
+totalprice = price_IBM * amount
+print(f"The total for your order will be {totalprice}.")
+
+# Write something to show the budget that is left (Class? Function?)

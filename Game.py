@@ -11,10 +11,13 @@ if uname not in Users.userlist:
     print(f"Hello {user.username}, your account balanace is {user.balance}.")
 
 ans = input("Do you want to buy IBM stocks? (Y/N) ")
-while ans == "N":
-    print("Ok, bye!")
-    ans = input("Do you want to buy IBM stocks now? (Y/N) ")
-    if ans == "Y":
+while ans not in ("N", "Y"):
+    print("Did you not read the prompt correctly? Please try again.")
+    ans = input("Do you want to buy IBM stocks? (Y/N) ")
+    if ans == "N":
+        print("Ok, bye!")
+        exit(0)
+    elif ans == "Y":
         continue
 
 price_IBM = Stock().GetPrice()

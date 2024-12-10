@@ -3,7 +3,7 @@ class Users:
         self.username = username
         self.balance = balance
 
-    userlist = {}
+    userlist: dict[str, int] = {}
     def add_to_userlist(self):
         #userlist = {}
         self.userlist[self.username] = self.balance

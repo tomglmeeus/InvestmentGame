@@ -18,10 +18,16 @@ while ans == "N":
         continue
 
 price_IBM: float = 10  # fill with price function
+price_IBM = Stock().GetPrice()
 print(f"The price for one stock is {price_IBM}.")
 
 amount = int(input("How many stocks do you want to buy? "))
 totalprice = price_IBM * amount
-print(f"The total for your order will be {totalprice}.")
+if totalprice > ubalance:
+    print("{}, you have insufficient balance".format(uname))
+else:
+    print(f"The total for your order will be {totalprice}.")
+    ubalance -= totalprice
+    print(f"You remaining balance is {ubalance}.")
 
 # Write something to show the balance that is left (Class? Function?)

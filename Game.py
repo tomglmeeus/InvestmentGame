@@ -8,7 +8,7 @@ if uname not in Users.userlist:
     user: Users = Users(uname, ubalance)
     Users.add_to_userlist(user)
 
-    print(f"Hello {user.username}, your account balanace is {user.balance}.")
+    print(f"\nHello {user.username}, your account balanace is {user.balance}.")
 
 ans: str = input("Do you want to buy IBM stocks? (Y/N) ")
 while ans not in ("N", "Y"):
@@ -22,20 +22,19 @@ while ans not in ("N", "Y"):
         continue
 
 price_IBM = Stock().GetPrice()
-print(f"The price for one stock is {price_IBM}.")
+print(f"\nThe price for one stock is {price_IBM}.")
 
 while True:
     amount = int(input("How many stocks do you want to buy? "))
     totalprice = price_IBM * amount
-    print(totalprice)
     if totalprice > ubalance:
-        print("{}, you have insufficient balance you poor thing.".format(uname))
+        print("\n{}, you have insufficient balance you poor thing.".format(uname))
     else:
-        print(f"The total for your order will be {totalprice}.")
+        print(f"\nThe total for your order will be {totalprice}.")
         ubalance -= totalprice
         ubalance = round(ubalance, 2)
         print(f"Your remaining balance is {ubalance}.")
         break
 
 profit = round(Stock().GetProfitLoss(), 2)
-print(f"If you would sell today, your profit/loss would be {profit} \nOk, bye!")
+print(f"\nIf you would sell today, your profit/loss would be {profit} \nOk, bye!")

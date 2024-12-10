@@ -4,7 +4,7 @@ from Stock import Stock
 
 uname: str = input("Hi, what is your name? ")
 if uname not in Users.userlist:
-    ubalance: int = int(input("Set your balance: "))
+    ubalance = int(input("Set your balance: "))
     user: Users = Users(uname, ubalance)
     Users.add_to_userlist(user)
 
@@ -25,9 +25,9 @@ price_IBM: float = Stock().GetPrice()
 print(f"The price for one stock is {price_IBM}.")
 
 amount = int(input("How many stocks do you want to buy? "))
-totalprice = price_IBM * amount
+totalprice: float = price_IBM * amount
 if totalprice > ubalance:
-    print("{}, you have insufficient balance".format(uname))
+    print("{}, you have insufficient balance you poor thing.".format(uname))
 else:
     print(f"The total for your order will be {totalprice}.")
     ubalance -= totalprice

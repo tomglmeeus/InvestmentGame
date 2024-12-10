@@ -17,7 +17,6 @@ while ans == "N":
     if ans == "Y":
         continue
 
-price_IBM: float = 10  # fill with price function
 price_IBM = Stock().GetPrice()
 print(f"The price for one stock is {price_IBM}.")
 

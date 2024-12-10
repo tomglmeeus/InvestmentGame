@@ -3,11 +3,12 @@ from Stock import Stock
 
 
 uname: str = input("Hi, what is your name? ")
-ubalance: int = int(input("Set your balance: "))
+if uname not in Users.userlist:
+    ubalance: int = int(input("Set your balance: "))
+    user = Users(uname, ubalance)
+    Users.add_to_userlist(user)
 
-user = Users(uname, ubalance)
-
-print(f"Hello {user.username} your account balanace is {user.balance}.")
+    print(f"Hello {user.username}, your account balanace is {user.balance}.")
 
 ans = input("Do you want to buy IBM stocks? (Y/N) ")
 while ans == "N":
@@ -29,4 +30,4 @@ else:
     ubalance -= totalprice
     print(f"You remaining balance is {ubalance}.")
 
-# Write something to show the budget that is left (Class? Function?)
+# Write something to show the balance that is left (Class? Function?)

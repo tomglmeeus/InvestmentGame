@@ -17,8 +17,21 @@ class Stock():
         stock = Stock().GetStock()
         today = str(datetime.now().strftime("%Y-%m-%d"))
         try:
+            price = stock["Time Series (Daily)"][today]["1. open"]            
+            return(float(price))
+        except KeyError:
+            print("No data found for date {}".format(today))
+            return 0
+        
+    def GetSellPrice(self):
+        stock = Stock().GetStock()
+        today = str(datetime.now().strftime("%Y-%m-%d"))
+        try:
             price = stock["Time Series (Daily)"][today]["4. close"]            
             return(float(price))
         except KeyError:
             print("No data found for date {}".format(today))
             return 0
+        
+    def GetProfitLoss(self):
+        return self.GetSellPrice() - self.GetPrice()

@@ -27,13 +27,15 @@ print(f"The price for one stock is {price_IBM}.")
 while True:
     amount = int(input("How many stocks do you want to buy? "))
     totalprice = price_IBM * amount
+    print(totalprice)
     if totalprice > ubalance:
         print("{}, you have insufficient balance you poor thing.".format(uname))
     else:
         print(f"The total for your order will be {totalprice}.")
         ubalance -= totalprice
+        ubalance = round(ubalance, 2)
         print(f"Your remaining balance is {ubalance}.")
         break
 
-profit = Stock().GetProfitLoss()
+profit = round(Stock().GetProfitLoss(), 2)
 print(f"If you would sell today, your profit/loss would be {profit} \nOk, bye!")

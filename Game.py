@@ -21,16 +21,16 @@ while ans not in ("N", "Y"):
     elif ans == "Y":
         continue
 
-price_IBM: float = Stock().GetPrice()
+price_IBM = Stock().GetPrice()
 print(f"The price for one stock is {price_IBM}.")
 
 amount = int(input("How many stocks do you want to buy? "))
-totalprice: float = price_IBM * amount
-if totalprice > ubalance:
+totalprice = price_IBM * amount
+while totalprice > ubalance:
     print("{}, you have insufficient balance you poor thing.".format(uname))
-else:
-    print(f"The total for your order will be {totalprice}.")
-    ubalance -= totalprice
-    print(f"You remaining balance is {ubalance}.")
-
-# Write something to show the balance that is left (Class? Function?)
+    amount = int(input("How many stocks do you want to buy? "))
+    totalprice = price_IBM * amount
+    if totalprice < ubalance:
+        print(f"The total for your order will be {totalprice}.")
+        ubalance -= totalprice
+        print(f"You remaining balance is {ubalance}.")
